@@ -11,10 +11,13 @@ except FileNotFoundError:
     print("Error: Model or vectorizer file not found.")
     exit()
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    data = request.get_json()
-    symptoms = data.get('symptoms', '')
+    if request.method == 'GET':
+        symptoms = request.args.get('symptoms', '')
+    else:
+        data = request.get_json()
+        symptoms = data.get('symptoms', '')
     if symptoms.strip() == "":
         return jsonify({'error': 'Please enter some symptoms'}), 400
     
