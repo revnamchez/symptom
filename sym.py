@@ -70,13 +70,14 @@ with tab1:
 with tab2:
     
         responses = {
-            "major": ["Has the symptom persisted for over 24 hours?"],
-            "minor": ["Has the symptom persisted for over 24 hours?"],
-            "beta": ["You may need some rest while you monitor the situation. ok?"],
-            "wos": ["you really need urgent medical attention. See your doctor. ok?"],
-            "affirm": ["up till now, do you feel 'better' or 'worse'"],
-            "naffirm": ["please avoid self medication. See your doctor if it persists after 24 hours. ok?"],
-            "often": ["How often do you fall sick? ('rarely', 'occasionally', 'frequently')"],
+            "svr": ["Has the symptom persisted for over 24 hours?"],
+            "mld": ["Has the symptom persisted for over 24 hours?"],
+            "beta": ["You may need some rest while you monitor the situation. ok? (Type ok)"],
+            "sam": ["Watch it for some more hours, if it continues, please consult your doctor. ok? (Type ok)"],
+            "wos": ["You really need urgent medical attention. See your doctor. ok? (Type ok)"],
+            "affirm": ["Up till now, do you feel (Type: 'better', 'same' or 'worse')"],
+            "naffirm": ["Please avoid self medication. See your doctor if it persists after 24 hours. ok? (Type ok)"],
+            "often": ["How often do you fall sick? (Type: 'rarely', 'occasionally' or 'frequently')"],
             "rare": ["You seems to have a strong immune system. Wait and observe, but seek medical attention if symptoms persists after 48 hours. Thanks."],
             "ocassion": ["You seems to have an average immune system. Avoid stress, and seek medical attention if symptoms persists after 24 hours. Thanks."],
             "freq": ["Your immune system is probably weak. Please see your doctor at once. Thanks."],
@@ -86,9 +87,10 @@ with tab2:
     
         #Keywords
         keywords = {
-            "major": ["major"],
-            "minor": ["minor"],
+            "svr": ["severe"],
+            "mld": ["mild"],
             "beta": ["better"],
+            "sam": ["same"],
             "wos": ["worse"],
             "affirm": ["yes"],
             "naffirm": ["no"],
@@ -119,7 +121,7 @@ def get_response(user_input):
 # Frontend
 def main():
         st.subheader("Get Advice - Mini ChatBot 🤖")
-        st.write("Rate your Symptom (major or minor?)")
+        st.write("Rate your Symptom (type: mild or severe)")
     
         user_input = st.text_input("type in small letters:")
         
