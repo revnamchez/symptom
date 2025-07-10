@@ -123,7 +123,7 @@ def main():
         st.subheader("Get Advice - Mini ChatBot 🤖")
         st.write("Rate your Symptom (type: mild or severe)")
     
-        user_input = st.text_input("type in small letters:")
+        user_input = st.text_input("type in small letters. (Type goodbye to exit:")
         
         if user_input:
             response = get_response(user_input)
