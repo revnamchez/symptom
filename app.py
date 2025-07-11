@@ -13,6 +13,10 @@ except FileNotFoundError:
     print("Error: Model or vectorizer file not found.")
     exit()
 
+@app.route('/')
+def index():
+    return 'Welcome to the Sickness Prediction System!'
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'GET':
