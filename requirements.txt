@@ -3,6 +3,5 @@ joblib
 pandas
 scikit-learn
 numpy
-random
 streamlit
 re
